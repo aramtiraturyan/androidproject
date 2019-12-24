@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">Learn Solo</string>
+
+    <!--Contact Form-->
+
+    <string name="contact_form">Contact Us</string>
+    <string name="contact_form_name">Your Name</string>
+    <string name="contact_form_email">Your Email</string>
+    <string name="contact_form_subject">Subject</string>
+    <string name="contact_form_message">Message</string>
+    <string name="contact_form_button">Send Message</string>
+    <string name="contact_form_post_message">Please wait! We\'re sending your message to the support department...</string>
+    <string name="contact_posted">Your message has been successfully delivered.</string>
+    <string name="contact_us_activity">Contact Us Activity</string>
+    <string name="home">Home</string>
+    <string name="subscription_plans">Subscription Plans</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="create_account">Create Account</string>
+    <string name="create_child_account">Create Child Account</string>
+    <string name="create_parent_account">Create Parent Account</string>
+    <string name="learn_solo">Learn Solo</string>
+    <string name="hello_aramtiraturyan_com">hello@aramtiraturyan.com</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="buffering">Buffering</string>
+    <string name="discover_solo_learn_in_this_video">Discover Solo Learn in this video</string>
+    <string name="once">Once</string>
+    <string name="continuously">continuously</string>
+    <string name="stop">Stop</string>
+
+</resources>

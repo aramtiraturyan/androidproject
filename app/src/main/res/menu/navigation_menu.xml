@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_black_24dp"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/nav_subscribe"
+            android:icon="@drawable/ic_credit_card_black_24dp"
+            android:title="@string/subscription_plans" />
+        <item
+            android:id="@+id/nav_contactus"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="@string/contact_us" />
+
+    </group>
+
+    <item android:title="@string/create_account">
+        <menu>
+            <item
+                android:id="@+id/nav_createchildaccount"
+                android:icon="@drawable/ic_face_black_24dp"
+                android:title="@string/create_child_account" />
+            <item
+                android:id="@+id/nav_createparentaccount"
+                android:icon="@drawable/ic_group_black_24dp"
+                android:title="@string/create_parent_account" />
+        </menu>
+    </item>
+
+</menu>
