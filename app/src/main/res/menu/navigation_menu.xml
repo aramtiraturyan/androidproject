@@ -24,7 +24,7 @@
             <item
                 android:id="@+id/nav_createchildaccount"
                 android:icon="@drawable/ic_face_black_24dp"
-                android:title="@string/create_child_account" />
+                android:title="@string/create_student_account" />
             <item
                 android:id="@+id/nav_createparentaccount"
                 android:icon="@drawable/ic_group_black_24dp"

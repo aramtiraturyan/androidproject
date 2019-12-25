@@ -20,6 +20,18 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="3dp"
+            android:text="@string/contact_us"
+            android:textAllCaps="true"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="3dp"
             android:text="@string/contact_form_name"
             android:textAllCaps="true"
             android:textColor="@color/colorPrimary"
@@ -85,7 +97,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:height="180dp"
+            android:height="160dp"
             android:gravity="top"
             android:inputType="textMultiLine"
             android:textSize="14sp" />

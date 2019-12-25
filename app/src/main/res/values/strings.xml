@@ -16,7 +16,7 @@
     <string name="subscription_plans">Subscription Plans</string>
     <string name="contact_us">Contact Us</string>
     <string name="create_account">Create Account</string>
-    <string name="create_child_account">Create Child Account</string>
+    <string name="create_student_account">Create Student Account</string>
     <string name="create_parent_account">Create Parent Account</string>
     <string name="learn_solo">Learn Solo</string>
     <string name="hello_aramtiraturyan_com">hello@aramtiraturyan.com</string>
@@ -30,5 +30,26 @@
     <string name="once">Once</string>
     <string name="continuously">continuously</string>
     <string name="stop">Stop</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="login_as">Login As</string>
+    <string name="login">Login</string>
+    <string name="please_sign_in">Please sign in</string>
+    <string name="_6_months">6 months</string>
+    <string name="_3_months">3 months</string>
+    <string name="_1_month">1 month</string>
+    <string name="buy">Buy</string>
+    <string name="eur_29_99">EUR 29,99</string>
+    <string name="eur_119_99">EUR 119,99</string>
+    <string name="for_1_month">for 1 month</string>
+    <string name="for_3_months">for 3 months</string>
+    <string name="for_6_months">for 6 months</string>
+    <string name="eur_74_99">EUR 74,99</string>
+
+
+    <string-array name="loginas">
+        <item>student</item>
+        <item>parent</item>
+    </string-array>
 
 </resources>
