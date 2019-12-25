@@ -9,7 +9,7 @@
     <string name="contact_form_subject">Subject</string>
     <string name="contact_form_message">Message</string>
     <string name="contact_form_button">Send Message</string>
-    <string name="contact_form_post_message">Please wait! We\'re sending your message to the support department...</string>
+    <string name="contact_form_post_message">Please wait! We\'re sending your message to the support department…</string>
     <string name="contact_posted">Your message has been successfully delivered.</string>
     <string name="contact_us_activity">Contact Us Activity</string>
     <string name="home">Home</string>
@@ -45,11 +45,57 @@
     <string name="for_3_months">for 3 months</string>
     <string name="for_6_months">for 6 months</string>
     <string name="eur_74_99">EUR 74,99</string>
+    <string name="basic">Basic</string>
+    <string name="standard">Standard</string>
+    <string name="premium">Premium</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="phone">Phone</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="parent">parent</string>
+    <string name="email_of_parent">Email of Parent</string>
+    <string name="student">student</string>
+    <string name="grade">Grade</string>
+    <string name="age">Age</string>
+    <string name="enter_your_name">Enter your Name</string>
+    <string name="enter_your_last_name">Enter your Last Name</string>
+    <string name="enter_your_email">Enter your Email</string>
+    <string name="enter_your_parent_s_email">Enter your parent\'s Email</string>
+    <string name="your_phone">Your Phone</string>
 
 
     <string-array name="loginas">
         <item>student</item>
         <item>parent</item>
     </string-array>
+
+    <string-array name="grade">
+        <item>6eme</item>
+        <item>5eme</item>
+        <item>4eme</item>
+        <item>3eme</item>
+        <item>Seconde</item>
+        <item>1re</item>
+        <item>Terminale S</item>
+        <item>Terminale ES</item>
+        <item>Terminale L</item>
+        <item>Terminale STMG</item>
+    </string-array>
+
+    <string-array name="age">
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+    </string-array>
+
 
 </resources>
