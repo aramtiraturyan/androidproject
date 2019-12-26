@@ -1,12 +1,9 @@
 package com.aramtiraturyan.androidproject;
 
 
-import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -30,26 +27,21 @@ public class SubscribeParentFragment extends Fragment {
         // Required empty public constructor
     }
 
-    EditText name, lastname, email, phone, password, confirm_password, account_type;
-    Button signup;
-
-
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+       public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_subscribe_parent, container, false);
 
         View rootview = inflater.inflate(R.layout.fragment_subscribe_parent, container, false);
 
-        name = (EditText) rootview.findViewById(R.id.parent_signup_name);
-        lastname = (EditText) rootview.findViewById(R.id.parent_signup_lastname);
-        email = (EditText) rootview.findViewById(R.id.parent_signup_email);
-        phone = (EditText) rootview.findViewById(R.id.parent_signup_phone);
-        password = (EditText) rootview.findViewById(R.id.parent_signup_password);
-        confirm_password = (EditText) rootview.findViewById(R.id.parent_signup_confirm_password);
-        account_type = (EditText) rootview.findViewById(R.id.parent_signup_account_type);
-        signup = (Button) rootview.findViewById(R.id.parent_signup_button);
+        EditText name = rootview.findViewById(R.id.parent_signup_name);
+        EditText lastname = rootview.findViewById(R.id.parent_signup_lastname);
+        EditText email = rootview.findViewById(R.id.parent_signup_email);
+        EditText phone = rootview.findViewById(R.id.parent_signup_phone);
+        EditText password = rootview.findViewById(R.id.parent_signup_password);
+        EditText confirm_password = rootview.findViewById(R.id.parent_signup_confirm_password);
+        EditText account_type = rootview.findViewById(R.id.parent_signup_account_type);
+        Button signup = rootview.findViewById(R.id.parent_signup_button);
 
         signup.setOnClickListener(view -> {
             String _name = name.getText().toString();

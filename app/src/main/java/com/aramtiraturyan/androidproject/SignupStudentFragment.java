@@ -28,28 +28,24 @@ public class SignupStudentFragment extends Fragment {
         // Required empty public constructor
     }
 
-    EditText name, lastname, email, parent_email, phone, password, confirm_password, account_type;
-    Spinner age, grade;
-    Button signup;
-
-    @Override
+   @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_signup_student, container, false);
 
 
-        name = (EditText) rootview.findViewById(R.id.student_signup_name);
-        lastname = (EditText) rootview.findViewById(R.id.student_signup_lastname);
-        email = (EditText) rootview.findViewById(R.id.student_signup_email);
-        parent_email = (EditText) rootview.findViewById(R.id.student_signup_email_of_parent);
-        phone = (EditText) rootview.findViewById(R.id.student_signup_phone);
-        password = (EditText) rootview.findViewById(R.id.student_signup_password);
-        confirm_password = (EditText) rootview.findViewById(R.id.student_signup_confirm_password);
-        account_type = (EditText) rootview.findViewById(R.id.student_signup_account_type);
-        age = (Spinner) rootview.findViewById(R.id.student_signup_age) ;
-        grade = (Spinner) rootview.findViewById(R.id.student_signup_grade);
-        signup = (Button) rootview.findViewById(R.id.student_signup_button);
+        EditText name = rootview.findViewById(R.id.student_signup_name);
+        EditText lastname = rootview.findViewById(R.id.student_signup_lastname);
+        EditText email = rootview.findViewById(R.id.student_signup_email);
+        EditText parent_email = rootview.findViewById(R.id.student_signup_email_of_parent);
+        EditText phone = rootview.findViewById(R.id.student_signup_phone);
+        EditText password = rootview.findViewById(R.id.student_signup_password);
+        EditText confirm_password = rootview.findViewById(R.id.student_signup_confirm_password);
+        EditText account_type = rootview.findViewById(R.id.student_signup_account_type);
+        Spinner age = rootview.findViewById(R.id.student_signup_age) ;
+        Spinner grade = rootview.findViewById(R.id.student_signup_grade);
+        Button signup = rootview.findViewById(R.id.student_signup_button);
 
         signup.setOnClickListener(view -> {
             String _name = name.getText().toString();

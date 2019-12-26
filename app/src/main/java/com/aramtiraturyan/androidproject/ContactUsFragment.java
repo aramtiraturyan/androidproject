@@ -26,8 +26,6 @@ public class ContactUsFragment extends Fragment {
     public ContactUsFragment() {
         // Required empty public constructor
     }
-    Button Send_feedback;
-    EditText name,email,subject,message;
 
 
     @Override
@@ -37,11 +35,11 @@ public class ContactUsFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_contact_us, container, false);
 
-        Send_feedback = (Button) rootview.findViewById(R.id.post_message);
-        name = (EditText) rootview.findViewById(R.id.your_name);
-        email = (EditText) rootview.findViewById(R.id.your_email);
-        subject = (EditText) rootview.findViewById(R.id.your_subject);
-        message = (EditText) rootview.findViewById(R.id.your_message);
+        Button Send_feedback = rootview.findViewById(R.id.post_message);
+        EditText name = rootview.findViewById(R.id.your_name);
+        EditText email = rootview.findViewById(R.id.your_email);
+        EditText subject = rootview.findViewById(R.id.your_subject);
+        EditText message = rootview.findViewById(R.id.your_message);
 
         Send_feedback.setOnClickListener(view -> {
             String b_name = name.getText().toString();

@@ -1,12 +1,10 @@
 package com.aramtiraturyan.androidproject;
 
 import android.content.res.Configuration;
-import android.media.MediaPlayer;
+
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.util.regex.Matcher;
@@ -28,10 +26,6 @@ public class HomeFragment extends Fragment {
 
     public HomeFragment() {
     }
-
-    EditText login_email, login_password;
-    Spinner login_as;
-    Button login;
 
     private int position = 0;
     private VideoView video;
@@ -45,10 +39,10 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
 
-        login_email = (EditText) rootView.findViewById(R.id.login_email);
-        login_password = (EditText) rootView.findViewById(R.id.login_password);
-        login_as = (Spinner) rootView.findViewById(R.id.login_as_spinner);
-        login = (Button) rootView.findViewById(R.id.login_button);
+        EditText login_email = rootView.findViewById(R.id.login_email);
+        EditText login_password = rootView.findViewById(R.id.login_password);
+        Spinner login_as = rootView.findViewById(R.id.login_as_spinner);
+        Button login = rootView.findViewById(R.id.login_button);
 
         login.setOnClickListener(view -> {
             String _login_email = login_email.getText().toString();
@@ -77,7 +71,7 @@ public class HomeFragment extends Fragment {
 
 
 
-        video = (VideoView) rootView.findViewById(R.id.videoView);
+        VideoView video = rootView.findViewById(R.id.videoView);
         video.requestFocus();
 
         String videopath = "android.resource://com.aramtiraturyan.androidproject/" + R.raw.crazy_frog;
@@ -95,28 +89,20 @@ public class HomeFragment extends Fragment {
         video.setKeepScreenOn(true);
         //video.start();
 
-        video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                video.seekTo(position);
-                if (position == 0) {
-                    video.pause();
+        video.setOnPreparedListener(mediaPlayer -> {
+            video.seekTo(position);
+            if (position == 0) {
+                video.pause();
 
-                }
-
-                mediaPlayer.setOnVideoSizeChangedListener(new MediaPlayer.OnVideoSizeChangedListener() {
-                    @Override
-                    public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i, int i1) {
-                        mediaController.setAnchorView(video);
-                    }
-                });
             }
+
+            mediaPlayer.setOnVideoSizeChangedListener((mediaPlayer1, i, i1) -> mediaController.setAnchorView(video));
         });
         return rootView;
     }
 
     @Override
-    public void onSaveInstanceState(Bundle savedInstanceState) {
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
         // Store current position.
@@ -125,7 +111,8 @@ public class HomeFragment extends Fragment {
     }
 
 
-    public void onConfigurationChanged(Configuration newConfig){
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig){
         super.onConfigurationChanged(newConfig);
     }
 
