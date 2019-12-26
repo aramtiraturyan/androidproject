@@ -43,58 +43,60 @@ public class ContactUsFragment extends Fragment {
         subject = (EditText) rootview.findViewById(R.id.your_subject);
         message = (EditText) rootview.findViewById(R.id.your_message);
 
-        Send_feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String b_name = name.getText().toString();
-                name.setText(null);
-                String b_email = email.getText().toString();
-                email.setText(null);
-                email.clearFocus();
-                String b_subject = subject.getText().toString();
-                subject.setText(null);
-                subject.clearFocus();
-                String b_message = message.getText().toString();
-                message.setText(null);
-                message.clearFocus();
-                if (TextUtils.isEmpty(b_name)){
-                    name.setError("Enter Your Name");
-                    name.requestFocus();
-                    return;
-                }
-
-                Boolean onError = false;
-                if (!isValidEmail(b_email)) {
-                    onError = true;
-                    email.setError("Invalid Email");
-                    return;
-                }
-
-                if (TextUtils.isEmpty(b_subject)){
-                    subject.setError("Enter Subject");
-                    subject.requestFocus();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(b_message)){
-                    message.setError("Enter Your Message");
-                    message.requestFocus();
-                    return;
-                }
-
-                Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_TEXT,b_name);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{"hello@aramtiraturyan.com"});
-                email.putExtra(Intent.EXTRA_SUBJECT, b_subject);
-                email.putExtra(Intent.EXTRA_TEXT,
-                        "Name: "+b_name+'\n'+"Email: "+b_email+'\n'+"Message: "+'\n'+b_message);
-
-
-                email.setType("email/rfc822");
-                startActivity(Intent.createChooser(email, "Choose an Email client : "));
-
+        Send_feedback.setOnClickListener(view -> {
+            String b_name = name.getText().toString();
+            //name.setText(null);
+            String b_email = email.getText().toString();
+            //email.setText(null);
+            email.clearFocus();
+            String b_subject = subject.getText().toString();
+            //subject.setText(null);
+            subject.clearFocus();
+            String b_message = message.getText().toString();
+            //message.setText(null);
+            message.clearFocus();
+            if (TextUtils.isEmpty(b_name)){
+                name.setError("Enter Your Name");
+                name.requestFocus();
+                return;
             }
 
+            if (!isValidEmail(b_email)) {
+                email.setError("Invalid Email");
+                return;
+            }
+
+            if (TextUtils.isEmpty(b_subject)){
+                subject.setError("Enter Subject");
+                subject.requestFocus();
+                return;
+            }
+
+            if (TextUtils.isEmpty(b_message)){
+                message.setError("Enter Your Message");
+                message.requestFocus();
+                return;
+            }
+
+            Intent emailing = new Intent(Intent.ACTION_SEND);
+            emailing.putExtra(Intent.EXTRA_TEXT,b_name);
+            emailing.putExtra(Intent.EXTRA_EMAIL, new String[]{"hello@aramtiraturyan.com"});
+            emailing.putExtra(Intent.EXTRA_SUBJECT, b_subject);
+            emailing.putExtra(Intent.EXTRA_TEXT,
+                    "Name: "+b_name+'\n'+"Email: "+b_email+'\n'+"Message: "+'\n'+b_message);
+
+
+            emailing.setType("email/rfc822");
+            startActivity(Intent.createChooser(emailing, "Choose an Email client : "));
+
+            name.setText(null);
+            email.setText(null);
+            subject.setText(null);
+            message.setText(null);
+            name.setError(null);
+            email.setError(null);
+            subject.setError(null);
+            message.setError(null);
         });
         return rootview;
 

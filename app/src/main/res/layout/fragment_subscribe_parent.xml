@@ -96,7 +96,7 @@
             android:textSize="14sp" />
 
         <EditText
-            android:id="@+id/signup_account_type"
+            android:id="@+id/parent_signup_account_type"
             android:layout_width="fill_parent"
             android:layout_height="38dp"
             android:text="@string/parent"
