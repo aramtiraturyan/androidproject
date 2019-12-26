@@ -4,6 +4,7 @@ package com.aramtiraturyan.androidproject;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -117,6 +118,13 @@ public class SignupStudentFragment extends Fragment {
             phone.setError(null);
             password.setError(null);
             confirm_password.setError(null);
+
+            Fragment newFragment = new HomeFragment();
+            FragmentTransaction transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
 
 
         });
