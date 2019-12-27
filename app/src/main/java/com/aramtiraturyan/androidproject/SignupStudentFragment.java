@@ -25,16 +25,18 @@ import java.util.regex.Pattern;
 public class SignupStudentFragment extends Fragment {
 
 
+
+
     public SignupStudentFragment() {
         // Required empty public constructor
     }
 
-   @Override
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_signup_student, container, false);
-
 
         EditText name = rootview.findViewById(R.id.student_signup_name);
         EditText lastname = rootview.findViewById(R.id.student_signup_lastname);
@@ -47,6 +49,8 @@ public class SignupStudentFragment extends Fragment {
         Spinner age = rootview.findViewById(R.id.student_signup_age) ;
         Spinner grade = rootview.findViewById(R.id.student_signup_grade);
         Button signup = rootview.findViewById(R.id.student_signup_button);
+
+        DatabaseHelper myDB = new DatabaseHelper(getActivity());
 
         signup.setOnClickListener(view -> {
             String _name = name.getText().toString();
@@ -99,10 +103,16 @@ public class SignupStudentFragment extends Fragment {
                 return;
             }
 
-            Toast.makeText(getContext(), "Account Created!" +"\n" + "Please login to continue." +"\n" + "Name: " + _name + "\n"+
-                    "LastName: " + _lastname + "\n"+ "Email: " + _email + "\n" + "Parent email: " + _parent_email
-                    + "\n"+ "Phone: " + _phone +"\n"+ "Password: " + _password +"\n"+ "Confirm Password: " + _confirm_password
-                    +"\n"+ "Account Type: " + _account_type + "\n" + "Age: " +_age + "\n" + "Grade: " + _grade , Toast.LENGTH_LONG).show();
+            boolean isInserted = myDB.signupStudent(_name, _lastname, _email, _parent_email, _phone, _password, _account_type, _age, _grade);
+            if
+            (isInserted = true) {
+                Toast.makeText(getContext(), "Account Created!"+"\n"+"Please Login to continue.", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getContext(), "Account Created!" + "\n" + "Please login to continue." + "\n" + "Name: " + _name + "\n" +
+                        "LastName: " + _lastname + "\n" + "Email: " + _email + "\n" + "Parent email: " + _parent_email
+                        + "\n" + "Phone: " + _phone + "\n" + "Password: " + _password + "\n" + "Confirm Password: " + _confirm_password
+                        + "\n" + "Account Type: " + _account_type + "\n" + "Age: " + _age + "\n" + "Grade: " + _grade, Toast.LENGTH_LONG).show();
+            }
 
             name.setText(null);
             lastname.setText(null);

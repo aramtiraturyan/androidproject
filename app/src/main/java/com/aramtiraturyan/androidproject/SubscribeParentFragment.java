@@ -1,8 +1,10 @@
 package com.aramtiraturyan.androidproject;
 
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -30,8 +32,9 @@ public class SubscribeParentFragment extends Fragment {
         // Required empty public constructor
     }
 
+       @Override
        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+                                Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         //return inflater.inflate(R.layout.fragment_subscribe_parent, container, false);
 
@@ -45,6 +48,8 @@ public class SubscribeParentFragment extends Fragment {
         EditText confirm_password = rootview.findViewById(R.id.parent_signup_confirm_password);
         EditText account_type = rootview.findViewById(R.id.parent_signup_account_type);
         Button signup = rootview.findViewById(R.id.parent_signup_button);
+
+        DatabaseHelper myDB = new DatabaseHelper(getActivity());
 
         signup.setOnClickListener(view -> {
             String _name = name.getText().toString();
@@ -97,9 +102,16 @@ public class SubscribeParentFragment extends Fragment {
                 return;
             }
 
-            Toast.makeText(getContext(), "Account Created!" +"\n" + "Please login to continue." +"\n" + "Name: " + _name + "\n"+ "LastName: " + _lastname + "\n"+ "Email: " + _email
-                    + "\n"+ "Phone: " + _phone +"\n"+ "Password: " + _password +"\n"+ "Confirm Password: " + _confirm_password
-                    +"\n"+ "Account Type: " + _account_type, Toast.LENGTH_LONG).show();
+
+            boolean isInserted = myDB.signupParent(_name, _lastname, _email, _phone, _password, _account_type);
+            if
+                (isInserted = true) {
+                Toast.makeText(getContext(), "Account Created!"+ "\n" + "Please login to continue.", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getContext(), "Account Created!" + "\n" + "Please login to continue." + "\n" + "Name: " + _name + "\n" + "LastName: " + _lastname + "\n" + "Email: " + _email
+                        + "\n" + "Phone: " + _phone + "\n" + "Password: " + _password + "\n" + "Confirm Password: " + _confirm_password
+                        + "\n" + "Account Type: " + _account_type, Toast.LENGTH_LONG).show();}
+
 
             name.setText(null);
             lastname.setText(null);

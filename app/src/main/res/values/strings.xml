@@ -64,6 +64,7 @@
     <string name="enter_your_email">Enter your Email</string>
     <string name="enter_your_parent_s_email">Enter your parent\'s Email</string>
     <string name="your_phone">Your Phone</string>
+    <string name="view_all_data">View All data</string>
 
 
     <string-array name="loginas">

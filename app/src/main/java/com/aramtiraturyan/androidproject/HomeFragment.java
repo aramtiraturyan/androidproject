@@ -31,6 +31,7 @@ public class HomeFragment extends Fragment {
     private VideoView video;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -101,6 +102,7 @@ public class HomeFragment extends Fragment {
         return rootView;
     }
 
+    /**
     @Override
     public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
@@ -109,7 +111,7 @@ public class HomeFragment extends Fragment {
         savedInstanceState.putInt("CurrentPosition", video.getCurrentPosition());
         video.pause();
     }
-
+*/
 
     @Override
     public void onConfigurationChanged(@NonNull Configuration newConfig){
