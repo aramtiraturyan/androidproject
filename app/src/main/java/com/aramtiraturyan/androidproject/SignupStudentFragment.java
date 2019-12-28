@@ -104,43 +104,36 @@ public class SignupStudentFragment extends Fragment {
             }
 
             boolean isInserted = myDB.signupStudent(_name, _lastname, _email, _parent_email, _phone, _password, _account_type, _age, _grade);
-            if
-            (isInserted = true) {
+            if (isInserted == true) {
                 Toast.makeText(getContext(), "Account Created!"+"\n"+"Please Login to continue.", Toast.LENGTH_LONG).show();
+
+                name.setText(null);
+                lastname.setText(null);
+                email.setText(null);
+                parent_email.setText(null);
+                phone.setText(null);
+                password.setText(null);
+                confirm_password.setText(null);
+                name.setError(null);
+                lastname.setError(null);
+                email.setError(null);
+                parent_email.setError(null);
+                phone.setError(null);
+                password.setError(null);
+                confirm_password.setError(null);
+
+                Fragment newFragment = new HomeFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+                
+
             } else {
-                Toast.makeText(getContext(), "Account Created!" + "\n" + "Please login to continue." + "\n" + "Name: " + _name + "\n" +
-                        "LastName: " + _lastname + "\n" + "Email: " + _email + "\n" + "Parent email: " + _parent_email
-                        + "\n" + "Phone: " + _phone + "\n" + "Password: " + _password + "\n" + "Confirm Password: " + _confirm_password
-                        + "\n" + "Account Type: " + _account_type + "\n" + "Age: " + _age + "\n" + "Grade: " + _grade, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Account already exists!" + "\n" + "Use a different email to sign up.", Toast.LENGTH_LONG).show();
             }
 
-            name.setText(null);
-            lastname.setText(null);
-            email.setText(null);
-            parent_email.setText(null);
-            phone.setText(null);
-            password.setText(null);
-            confirm_password.setText(null);
-            name.setError(null);
-            lastname.setError(null);
-            email.setError(null);
-            parent_email.setError(null);
-            phone.setError(null);
-            password.setError(null);
-            confirm_password.setError(null);
-
-            Fragment newFragment = new HomeFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-
-
-
         });
-
-
-
 
         return rootview;
     }

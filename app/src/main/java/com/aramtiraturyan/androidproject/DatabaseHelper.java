@@ -3,6 +3,7 @@ package com.aramtiraturyan.androidproject;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -11,7 +12,7 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        //SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
     }
 
 
@@ -57,11 +58,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PHONE, _phone);
         contentValues.put(PASSWORD, _password);
         contentValues.put(ACCOUNT_TYPE, _account_type);
-        long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
+        long res = db.insert(TABLE_NAME, null, contentValues);
+        if(res == -1) {
             return false;
-        else
+        } else {
             return true;
+        }
     }
 
 
@@ -105,9 +107,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getAllData(){
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("select * from " + TABLE_NAME, null);
-
     }
 
+    public Cursor getLoginData(String _email, String _password, String _account_type){
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("select * from " + TABLE_NAME + " where " + EMAIL + "=?" + " AND " + PASSWORD + "=?" + " AND "+ ACCOUNT_TYPE + "=?", new String[]{_email, _password, _account_type});
+    }
 
 
 }

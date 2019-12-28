@@ -104,34 +104,31 @@ public class SubscribeParentFragment extends Fragment {
 
 
             boolean isInserted = myDB.signupParent(_name, _lastname, _email, _phone, _password, _account_type);
-            if
-                (isInserted = true) {
-                Toast.makeText(getContext(), "Account Created!"+ "\n" + "Please login to continue.", Toast.LENGTH_LONG).show();
+            if (isInserted == true) {
+                Toast.makeText(getContext(), "Account Created!" + "\n" + "Please login to continue.", Toast.LENGTH_LONG).show();
+
+                name.setText(null);
+                lastname.setText(null);
+                email.setText(null);
+                phone.setText(null);
+                password.setText(null);
+                confirm_password.setText(null);
+                name.setError(null);
+                lastname.setError(null);
+                email.setError(null);
+                phone.setError(null);
+                password.setError(null);
+
+
+                Fragment newFragment = new HomeFragment();
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, newFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
             } else {
-                Toast.makeText(getContext(), "Account Created!" + "\n" + "Please login to continue." + "\n" + "Name: " + _name + "\n" + "LastName: " + _lastname + "\n" + "Email: " + _email
-                        + "\n" + "Phone: " + _phone + "\n" + "Password: " + _password + "\n" + "Confirm Password: " + _confirm_password
-                        + "\n" + "Account Type: " + _account_type, Toast.LENGTH_LONG).show();}
-
-
-            name.setText(null);
-            lastname.setText(null);
-            email.setText(null);
-            phone.setText(null);
-            password.setText(null);
-            confirm_password.setText(null);
-            name.setError(null);
-            lastname.setError(null);
-            email.setError(null);
-            phone.setError(null);
-            password.setError(null);
-
-
-            Fragment newFragment = new HomeFragment();
-            FragmentTransaction transaction = getFragmentManager().beginTransaction();
-            transaction.replace(R.id.fragment_container, newFragment);
-            transaction.addToBackStack(null);
-            transaction.commit();
-
+                    Toast.makeText(getContext(), "Account already exists!" + "\n" + "Use a different email to sign up." , Toast.LENGTH_LONG).show();
+                }
 
         });
 

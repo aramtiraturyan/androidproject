@@ -1,10 +1,13 @@
 package com.aramtiraturyan.androidproject;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import java.util.regex.Matcher;
@@ -45,6 +47,8 @@ public class HomeFragment extends Fragment {
         Spinner login_as = rootView.findViewById(R.id.login_as_spinner);
         Button login = rootView.findViewById(R.id.login_button);
 
+        DatabaseHelper myDB = new DatabaseHelper(getActivity());
+
         login.setOnClickListener(view -> {
             String _login_email = login_email.getText().toString();
             String _login_password = login_password.getText().toString();
@@ -61,15 +65,57 @@ public class HomeFragment extends Fragment {
                 return;
             }
 
-            Toast.makeText(getContext(), "Login: " + _login_email + "\n"+
-                    "Password: " + _login_password + "\n"+ "Login As: " + _login_as , Toast.LENGTH_LONG).show();
+            //Toast.makeText(getContext(), "Login: " + _login_email + "\n"+
+             //       "Password: " + _login_password + "\n"+ "Login As: " + _login_as , Toast.LENGTH_LONG).show();
 
-            login_email.setText(null);
-            login_password.setText(null);
+            //login_email.setText(null);
+            //login_password.setText(null);
+
+            Cursor rs = myDB.getLoginData(login_email.getText().toString(), login_password.getText().toString(), login_as.getSelectedItem().toString());
+
+            if (rs.moveToFirst()) {
+                String name = rs.getString(rs.getColumnIndex(myDB.NAME));
+                String password = rs.getString(rs.getColumnIndex(myDB.PASSWORD));
+                String account_type = rs.getString(rs.getColumnIndex(myDB.ACCOUNT_TYPE));
+
+                if (account_type.equals("parent")) {
+                    Toast.makeText(getContext(), "Login Successful " + name + "!", Toast.LENGTH_LONG).show();
+
+                    Intent ParentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.ParentHome.class);
+                    ParentHome.putExtra("key_name", name);
+                    //ParentHome.putExtra("key_email", login_email);
+                    startActivity(ParentHome);
+
+                    login_email.setText(null);
+                    login_password.setText(null);
+
+                    if (rs != null && !rs.isClosed()) {
+                        rs.close();
+                    }
+                }
+
+                 else if (account_type.equals("student")) {
+                    Toast.makeText(getContext(), "Login successful " + name + "!", Toast.LENGTH_LONG).show();
+
+                    Intent StudentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.StudentHome.class);
+                    StudentHome.putExtra("key_name", name);
+                    startActivity(StudentHome);
+
+                    login_email.setText(null);
+                    login_password.setText(null);
+
+                    if (rs != null && !rs.isClosed()) {
+                        rs.close();
+                    }
+
+                }
+
+            }else {
+                Toast.makeText(getContext(), "Invalid login", Toast.LENGTH_LONG).show();
+            }
 
 
         });
-
 
 
         VideoView video = rootView.findViewById(R.id.videoView);
@@ -100,22 +146,7 @@ public class HomeFragment extends Fragment {
             mediaPlayer.setOnVideoSizeChangedListener((mediaPlayer1, i, i1) -> mediaController.setAnchorView(video));
         });
         return rootView;
-    }
 
-    /**
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onSaveInstanceState(savedInstanceState);
-
-        // Store current position.
-        savedInstanceState.putInt("CurrentPosition", video.getCurrentPosition());
-        video.pause();
-    }
-*/
-
-    @Override
-    public void onConfigurationChanged(@NonNull Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
     }
 
     private boolean isValidEmail(String email) {
