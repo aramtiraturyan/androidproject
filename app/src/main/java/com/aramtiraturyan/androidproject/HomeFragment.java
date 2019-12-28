@@ -33,6 +33,8 @@ public class HomeFragment extends Fragment {
     private VideoView video;
 
 
+    SessionManagement session;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -41,6 +43,8 @@ public class HomeFragment extends Fragment {
         //return inflater.inflate(R.layout.fragment_home, container, false);
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        session = new SessionManagement(getContext());
+        Toast.makeText(getContext(), "User login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
         EditText login_email = rootView.findViewById(R.id.login_email);
         EditText login_password = rootView.findViewById(R.id.login_password);
@@ -81,6 +85,8 @@ public class HomeFragment extends Fragment {
                 if (account_type.equals("parent")) {
                     Toast.makeText(getContext(), "Login Successful " + name + "!", Toast.LENGTH_LONG).show();
 
+                    session.createLoginSession(name, account_type);
+
                     Intent ParentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.ParentHome.class);
                     ParentHome.putExtra("key_name", name);
                     //ParentHome.putExtra("key_email", login_email);
@@ -96,6 +102,8 @@ public class HomeFragment extends Fragment {
 
                  else if (account_type.equals("student")) {
                     Toast.makeText(getContext(), "Login successful " + name + "!", Toast.LENGTH_LONG).show();
+
+                    session.createLoginSession(name, account_type);
 
                     Intent StudentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.StudentHome.class);
                     StudentHome.putExtra("key_name", name);

@@ -67,6 +67,7 @@
     <string name="view_all_data">View All data</string>
     <string name="student_home_activity">Student Home Activity</string>
     <string name="parent_home_activity">Parent Home Activity</string>
+    <string name="logout">Logout</string>
 
 
     <string-array name="loginas">
