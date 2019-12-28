@@ -2,6 +2,7 @@ package com.aramtiraturyan.androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -16,9 +17,11 @@ import java.util.HashMap;
 
 public class ParentHome extends AppCompatActivity {
 
-    AlertDialogManager alert = new AlertDialogManager();
+
     SessionManagement session;
     Button btnLogout;
+    Button btnpcontactus;
+    Button subscribeparent;
 
 
     @Override
@@ -30,6 +33,9 @@ public class ParentHome extends AppCompatActivity {
         TextView lblName = (TextView) findViewById(R.id.lblName);
         TextView lblAcctType = (TextView) findViewById(R.id.lblAccType);
         btnLogout = (Button) findViewById(R.id.btnLogout);
+        subscribeparent = (Button) findViewById(R.id.subscribe_parent);
+
+        btnpcontactus = (Button) findViewById(R.id.btnparentcontactus);
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
@@ -47,6 +53,20 @@ public class ParentHome extends AppCompatActivity {
             }
         });
 
+        btnpcontactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ParentHome.this, Contact_us_activity.class ));
+            }
+        });
+
+        subscribeparent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ParentHome.this, Subscription_parent.class));
+            }
+        });
+
 
 
 
@@ -58,5 +78,9 @@ public class ParentHome extends AppCompatActivity {
         //Usermail.setText(getIntent().getStringExtra("key_email"));
 
 
+    }
+
+    @Override
+    public void onBackPressed(){
     }
 }

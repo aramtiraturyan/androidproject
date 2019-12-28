@@ -1,13 +1,11 @@
 package com.aramtiraturyan.androidproject;
 
 import android.content.Intent;
-import android.content.res.Configuration;
 
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +42,7 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         session = new SessionManagement(getContext());
-        Toast.makeText(getContext(), "User login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getContext(), "User login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
 
         EditText login_email = rootView.findViewById(R.id.login_email);
         EditText login_password = rootView.findViewById(R.id.login_password);

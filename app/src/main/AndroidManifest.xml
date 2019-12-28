@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ParentHome"></activity>
+        <activity android:name=".Subscription_parent"></activity>
+        <activity android:name=".Contact_us_activity" />
+        <activity android:name=".ParentHome" />
         <activity android:name=".StudentHome" />
         <activity
             android:name=".MainActivity"
