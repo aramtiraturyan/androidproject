@@ -72,6 +72,13 @@
     <string name="list_of_children">List of Children</string>
     <string name="add_a_child">Add a child</string>
     <string name="add_or_view_children">Add or view children</string>
+    <string name="student_name">Student Name</string>
+    <string name="student_email">Student Email</string>
+    <string name="student_phone">Student Phone</string>
+    <string name="student_password">Student Password</string>
+    <string name="confirm_student_password">Confirm Student Password</string>
+    <string name="number_of_students_to_add">Number of students to add</string>
+    <string name="students_to_add">Students to Add</string>
 
 
     <string-array name="loginas">
@@ -102,6 +109,14 @@
         <item>16</item>
         <item>17</item>
         <item>18</item>
+    </string-array>
+
+    <string-array name="nb_children_to_add">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
     </string-array>
 
 

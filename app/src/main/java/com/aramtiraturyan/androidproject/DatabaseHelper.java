@@ -87,7 +87,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean signupstudent_by_Parent (String _name, String _last_name, String _email, String _parent_email, String _phone, String _password, String _account_type){
+    public boolean signupstudent_by_Parent (String _name, String _last_name, String _email, String _parent_email, String _phone, String _password, String _account_type, String _age, String _grade){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(NAME, _name);
@@ -97,6 +97,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PHONE, _phone);
         contentValues.put(PASSWORD, _password);
         contentValues.put(ACCOUNT_TYPE, _account_type);
+        contentValues.put(AGE, _age);
+        contentValues.put(GRADE, _grade);
         long result = db.insert(TABLE_NAME, null, contentValues);
         if(result == -1)
             return false;
