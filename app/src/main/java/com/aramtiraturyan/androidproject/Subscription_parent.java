@@ -41,8 +41,13 @@ public class Subscription_parent extends AppCompatActivity implements View.OnCli
     //Integrate Google Pay or other payment method to accept payments
     //Need an api to make the integration.
     //Set conditions for each payment method. - Expiration dates, access to number o exercises, etc.
-    //For better functionality and flexiblity create a database with the payment types and give
+    //For better functionality and flexibility create a database with the payment types and give
     // admin access to add payment types and descriptions.
+    //add another column in database for storing the type of the plan for each child.
+    //So this way will be give the opportunity to the child to change its subscription plan.
+    //The functionality can be done in project, but it makes no sense in real life, as it is the
+    //parents who pay, the child will not have the possibility to change between the plans, as it makes
+    //no sense.
 
     @Override
     public void onClick(View v) {

@@ -34,7 +34,7 @@ public class StudentHome extends AppCompatActivity {
 
         HashMap<String, String> user = session.getUserDetails();
         String name = user.get(SessionManagement.KEY_NAME);
-        String acc_type = user.get(SessionManagement.KEY_EMAIL);
+        String acc_type = user.get(SessionManagement.KEY_ACCOUNT_TYPE);
         lblName.setText(Html.fromHtml("Name: <b>" + name + "<b>"));
         lblAcctType.setText(Html.fromHtml("Account type: <b>" + acc_type + "<b>"));
 

@@ -69,6 +69,9 @@
     <string name="parent_home_activity">Parent Home Activity</string>
     <string name="logout">Logout</string>
     <string name="back">Back</string>
+    <string name="list_of_children">List of Children</string>
+    <string name="add_a_child">Add a child</string>
+    <string name="add_or_view_children">Add or view children</string>
 
 
     <string-array name="loginas">

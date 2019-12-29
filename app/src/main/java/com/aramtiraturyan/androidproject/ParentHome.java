@@ -22,6 +22,7 @@ public class ParentHome extends AppCompatActivity {
     Button btnLogout;
     Button btnpcontactus;
     Button subscribeparent;
+    Button add_view_children;
 
 
     @Override
@@ -34,15 +35,15 @@ public class ParentHome extends AppCompatActivity {
         TextView lblAcctType = (TextView) findViewById(R.id.lblAccType);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         subscribeparent = (Button) findViewById(R.id.subscribe_parent);
-
         btnpcontactus = (Button) findViewById(R.id.btnparentcontactus);
+        add_view_children = (Button) findViewById(R.id.add_view_children);
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
 
         HashMap<String, String> user = session.getUserDetails();
         String name = user.get(SessionManagement.KEY_NAME);
-        String acc_type = user.get(SessionManagement.KEY_EMAIL);
+        String acc_type = user.get(SessionManagement.KEY_ACCOUNT_TYPE);
         lblName.setText(Html.fromHtml("Name: <b>" + name + "<b>"));
         lblAcctType.setText(Html.fromHtml("Account type: <b>" + acc_type + "<b>"));
 
@@ -64,6 +65,13 @@ public class ParentHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ParentHome.this, Subscription_parent.class));
+            }
+        });
+
+        add_view_children.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ParentHome.this, parent_displaychildren.class));
             }
         });
 

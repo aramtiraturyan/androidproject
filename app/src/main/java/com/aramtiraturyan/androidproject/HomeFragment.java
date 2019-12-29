@@ -54,7 +54,7 @@ public class HomeFragment extends Fragment {
         login.setOnClickListener(view -> {
             String _login_email = login_email.getText().toString();
             String _login_password = login_password.getText().toString();
-            String _login_as = login_as.getSelectedItem().toString();
+            //String _login_as = login_as.getSelectedItem().toString();
             if (TextUtils.isEmpty(_login_email)){
                 login_email.setError("Please enter your email");
                 return;
@@ -76,18 +76,24 @@ public class HomeFragment extends Fragment {
             Cursor rs = myDB.getLoginData(login_email.getText().toString(), login_password.getText().toString(), login_as.getSelectedItem().toString());
 
             if (rs.moveToFirst()) {
-                String name = rs.getString(rs.getColumnIndex(myDB.NAME));
+                String email = rs.getString(rs.getColumnIndex(myDB.EMAIL));
                 String password = rs.getString(rs.getColumnIndex(myDB.PASSWORD));
                 String account_type = rs.getString(rs.getColumnIndex(myDB.ACCOUNT_TYPE));
+                String name = rs.getString(rs.getColumnIndex(myDB.NAME));
+                String lastname = rs.getString(rs.getColumnIndex(myDB.LAST_NAME));
+                String email_of_parent = rs.getString(rs.getColumnIndex(myDB.PARENT_EMAIL));
+                String phone = rs.getString(rs.getColumnIndex(myDB.PHONE));
+                String age = rs.getString(rs.getColumnIndex(myDB.AGE));
+                String grade = rs.getString(rs.getColumnIndex(myDB.GRADE));
 
                 if (account_type.equals("parent")) {
                     Toast.makeText(getContext(), "Login Successful " + name + "!", Toast.LENGTH_LONG).show();
 
-                    session.createLoginSession(name, account_type);
+                    session.createLoginSession(name, lastname, email, email_of_parent, phone, password, account_type, age, grade);
 
                     Intent ParentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.ParentHome.class);
-                    ParentHome.putExtra("key_name", name);
-                    //ParentHome.putExtra("key_email", login_email);
+                    //ParentHome.putExtra("key_name", name);
+                    //ParentHome.putExtra("key_email", email);
                     startActivity(ParentHome);
 
                     login_email.setText(null);
@@ -101,10 +107,10 @@ public class HomeFragment extends Fragment {
                  else if (account_type.equals("student")) {
                     Toast.makeText(getContext(), "Login successful " + name + "!", Toast.LENGTH_LONG).show();
 
-                    session.createLoginSession(name, account_type);
+                    session.createLoginSession(name, lastname, email, email_of_parent, phone, password, account_type, age, grade);
 
                     Intent StudentHome = new Intent(getContext(), com.aramtiraturyan.androidproject.StudentHome.class);
-                    StudentHome.putExtra("key_name", name);
+                    //StudentHome.putExtra("key_name", name);
                     startActivity(StudentHome);
 
                     login_email.setText(null);
