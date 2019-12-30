@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Quizz"></activity>
         <activity android:name=".StudentsListActivity" />
         <activity android:name=".Signup_student_by_parent" />
         <activity android:name=".parent_displaychildren" />

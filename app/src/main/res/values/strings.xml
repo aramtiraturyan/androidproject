@@ -81,6 +81,8 @@
     <string name="students_to_add">Students to Add</string>
     <string name="hello">Hello</string>
     <string name="show">Show</string>
+    <string name="submit">Submit</string>
+    <string name="quizz_exercises">Quizz exercises</string>
 
 
     <string-array name="loginas">

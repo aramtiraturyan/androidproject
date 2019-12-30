@@ -17,6 +17,7 @@ public class StudentHome extends AppCompatActivity {
     SessionManagement session;
     Button btnLogout;
     Button btnscontactus;
+    Button quizzbutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class StudentHome extends AppCompatActivity {
         TextView lblAcctType = (TextView) findViewById(R.id.lblAccType);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         btnscontactus = (Button) findViewById(R.id.btnstudentcontactus);
+        quizzbutton = (Button) findViewById(R.id.quizz);
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
@@ -35,6 +37,7 @@ public class StudentHome extends AppCompatActivity {
         HashMap<String, String> user = session.getUserDetails();
         String name = user.get(SessionManagement.KEY_NAME);
         String acc_type = user.get(SessionManagement.KEY_ACCOUNT_TYPE);
+
         lblName.setText(Html.fromHtml("Name: <b>" + name + "<b>"));
         lblAcctType.setText(Html.fromHtml("Account type: <b>" + acc_type + "<b>"));
 
@@ -49,6 +52,13 @@ public class StudentHome extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(StudentHome.this, Contact_us_activity.class ));
+            }
+        });
+
+        quizzbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(StudentHome.this, Quizz.class));
             }
         });
 

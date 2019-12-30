@@ -84,11 +84,6 @@ public class ParentHome extends AppCompatActivity {
 
 
 
-        //display name or email as
-        //Name.setText(getIntent().getStringExtra("key_name"));
-        //Usermail.setText(getIntent().getStringExtra("key_email"));
-
-
     }
 
     @Override

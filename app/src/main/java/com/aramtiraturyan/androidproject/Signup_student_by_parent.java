@@ -115,15 +115,16 @@ public class Signup_student_by_parent extends AppCompatActivity {
 
                     startActivity(new Intent(Signup_student_by_parent.this, parent_displaychildren.class));
 
+                    //finish();
+                    //startActivity(getIntent());
 
                 } else {
                     Toast.makeText(getApplicationContext(), "Account already exists!" + "\n" + "Use a different email to sign up.", Toast.LENGTH_LONG).show();
                 }
 
-
-
             }
         });
+
 
     }
 
@@ -135,6 +136,18 @@ public class Signup_student_by_parent extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+
+    private boolean nboftimes(){
+        String _number = number.getSelectedItem().toString();
+        int _nb = Integer.parseInt(_number);
+
+        for (int i = 0; _nb <0; i++){
+            return false;
+        }
+        return true;
+    }
+
 
 
 }
