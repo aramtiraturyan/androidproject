@@ -1,15 +1,11 @@
 package com.aramtiraturyan.androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.text.Html;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -17,13 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.HashMap;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 import static com.aramtiraturyan.androidproject.SessionManagement.KEY_EMAIL;
-import static com.aramtiraturyan.androidproject.SessionManagement.KEY_EMAIL_OF_PARENT;
+
 
 public class Signup_student_by_parent extends AppCompatActivity {
 
@@ -141,8 +136,5 @@ public class Signup_student_by_parent extends AppCompatActivity {
         return matcher.matches();
     }
 
-    public static String get_email(String key, Context context) {
-        SharedPreferences preferences = getDefaultSharedPreferences(context);
-        return preferences.getString(key, null);
-    }
+
 }

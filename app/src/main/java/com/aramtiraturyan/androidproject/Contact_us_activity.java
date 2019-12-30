@@ -97,8 +97,8 @@ public class Contact_us_activity extends AppCompatActivity {
 
         back.setOnClickListener(view -> {
             //Can use either methods
-            //this.finish();
-            super.onBackPressed();
+            this.finish();
+            //super.onBackPressed();
                 }
                 );
 

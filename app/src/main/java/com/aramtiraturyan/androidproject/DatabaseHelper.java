@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.provider.SyncStateContract;
 
 import androidx.annotation.Nullable;
 
@@ -114,6 +115,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Cursor getLoginData(String _email, String _password, String _account_type){
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("select * from " + TABLE_NAME + " where " + EMAIL + "=?" + " AND " + PASSWORD + "=?" + " AND "+ ACCOUNT_TYPE + "=?", new String[]{_email, _password, _account_type});
+    }
+
+    public Cursor retrivestudents(String parentemail) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        //return db.rawQuery("select * from " + TABLE_NAME + " where" + PARENT_EMAIL + "=?", new String[]{_parent_email});
+        return db.rawQuery("select * from " + TABLE_NAME + " where " + PARENT_EMAIL + "=?", new String[]{parentemail});
+
     }
 
 

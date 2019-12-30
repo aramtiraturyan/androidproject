@@ -79,6 +79,8 @@
     <string name="confirm_student_password">Confirm Student Password</string>
     <string name="number_of_students_to_add">Number of students to add</string>
     <string name="students_to_add">Students to Add</string>
+    <string name="hello">Hello</string>
+    <string name="show">Show</string>
 
 
     <string-array name="loginas">

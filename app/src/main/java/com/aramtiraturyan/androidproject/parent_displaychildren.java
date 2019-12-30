@@ -13,7 +13,6 @@ import java.util.HashMap;
 
 public class parent_displaychildren extends AppCompatActivity {
 
-
     Spinner number;
 
     @Override
@@ -24,13 +23,15 @@ public class parent_displaychildren extends AppCompatActivity {
         Button back = findViewById(R.id.backbtndisplch);
         Button add_child = findViewById(R.id.btn_nb_of_students_to_add);
 
+        Button show_children=findViewById(R.id.displaychildren);
 
-        /* String _number = number.getSelectedItem().toString();
+        /*
+        String _number = number.getSelectedItem().toString();
         int _nmb = Integer.parseInt(_number);
 
         for (int i = 0; i < _nmb; i++) {
             Toast.makeText(this, "Clicked", Toast.LENGTH_LONG).show();}
-        */
+*/
 
             add_child.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -40,8 +41,16 @@ public class parent_displaychildren extends AppCompatActivity {
             });
 
 
+
             back.setOnClickListener(v -> {
-                super.onBackPressed();
+                this.finish();
+            });
+
+            show_children.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    startActivity(new Intent(parent_displaychildren.this, StudentsListActivity.class));
+                }
             });
 
     }
