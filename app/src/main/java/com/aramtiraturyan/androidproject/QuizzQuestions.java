@@ -1,5 +1,7 @@
 package com.aramtiraturyan.androidproject;
 
+import androidx.annotation.NonNull;
+
 public class QuizzQuestions {
 
     private String questionText;
@@ -72,6 +74,7 @@ public class QuizzQuestions {
     }
 
 
+    @NonNull
     @Override
     public String toString(){
         return questionText;

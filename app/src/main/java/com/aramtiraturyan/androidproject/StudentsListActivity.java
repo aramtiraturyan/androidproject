@@ -5,18 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toolbar;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
@@ -37,21 +30,16 @@ public class StudentsListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_students_list);
 
 
-        rv = (RecyclerView) findViewById(R.id.rv);
+        rv = findViewById(R.id.rv);
         rv.setLayoutManager(new LinearLayoutManager(this));
 
-        swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swiper);
+        swipeRefreshLayout = findViewById(R.id.swiper);
 
         adapter = new MyAdapter(this, students, swipeRefreshLayout);
 
-        retrive=(Button) findViewById(R.id.retrive);
+        retrive= findViewById(R.id.retrive);
 
-        retrive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getStudents();
-            }
-        });
+        retrive.setOnClickListener(v -> getStudents());
 
     }
 

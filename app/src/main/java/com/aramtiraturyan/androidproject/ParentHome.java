@@ -2,16 +2,14 @@ package com.aramtiraturyan.androidproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+
 
 import java.util.HashMap;
 
@@ -33,12 +31,12 @@ public class ParentHome extends AppCompatActivity {
 
 
         session = new SessionManagement(getApplicationContext());
-        TextView lblName = (TextView) findViewById(R.id.lblName);
-        TextView lblAcctType = (TextView) findViewById(R.id.lblAccType);
-        btnLogout = (Button) findViewById(R.id.btnLogout);
-        subscribeparent = (Button) findViewById(R.id.subscribe_parent);
-        btnpcontactus = (Button) findViewById(R.id.btnparentcontactus);
-        add_view_children = (Button) findViewById(R.id.add_view_children);
+        TextView lblName = findViewById(R.id.lblName);
+        TextView lblAcctType = findViewById(R.id.lblAccType);
+        btnLogout = findViewById(R.id.btnLogout);
+        subscribeparent = findViewById(R.id.subscribe_parent);
+        btnpcontactus = findViewById(R.id.btnparentcontactus);
+        add_view_children = findViewById(R.id.add_view_children);
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
@@ -50,33 +48,13 @@ public class ParentHome extends AppCompatActivity {
         lblName.setText(Html.fromHtml("Name: <b>" + name + "<b>"));
         lblAcctType.setText(Html.fromHtml("Account type: <b>" + acc_type + "<b>"));
 
-        btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                session.logoutUser();
-            }
-        });
+        btnLogout.setOnClickListener(v -> session.logoutUser());
 
-        btnpcontactus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ParentHome.this, Contact_us_activity.class ));
-            }
-        });
+        btnpcontactus.setOnClickListener(v -> startActivity(new Intent(ParentHome.this, Contact_us_activity.class )));
 
-        subscribeparent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ParentHome.this, Subscription_parent.class));
-            }
-        });
+        subscribeparent.setOnClickListener(v -> startActivity(new Intent(ParentHome.this, Subscription_parent.class)));
 
-        add_view_children.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ParentHome.this, parent_displaychildren.class));
-            }
-        });
+        add_view_children.setOnClickListener(v -> startActivity(new Intent(ParentHome.this, parent_displaychildren.class)));
 
 
 

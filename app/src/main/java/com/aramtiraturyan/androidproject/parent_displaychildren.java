@@ -4,16 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
-import java.util.HashMap;
 
 public class parent_displaychildren extends AppCompatActivity {
 
-    Spinner number;
+    //Spinner number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,25 +29,13 @@ public class parent_displaychildren extends AppCompatActivity {
             Toast.makeText(this, "Clicked", Toast.LENGTH_LONG).show();}
 */
 
-            add_child.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(parent_displaychildren.this, Signup_student_by_parent.class));
-                }
-            });
+            add_child.setOnClickListener(v -> startActivity(new Intent(parent_displaychildren.this, Signup_student_by_parent.class)));
 
 
 
-            back.setOnClickListener(v -> {
-                this.finish();
-            });
+            back.setOnClickListener(v -> this.finish());
 
-            show_children.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    startActivity(new Intent(parent_displaychildren.this, StudentsListActivity.class));
-                }
-            });
+            show_children.setOnClickListener(v -> startActivity(new Intent(parent_displaychildren.this, StudentsListActivity.class)));
 
     }
 

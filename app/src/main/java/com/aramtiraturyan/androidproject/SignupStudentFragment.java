@@ -104,7 +104,7 @@ public class SignupStudentFragment extends Fragment {
             }
 
             boolean isInserted = myDB.signupStudent(_name, _lastname, _email, _parent_email, _phone, _password, _account_type, _age, _grade);
-            if (isInserted == true) {
+            if (isInserted) {
                 Toast.makeText(getContext(), "Account Created!"+"\n"+"Please Login to continue.", Toast.LENGTH_LONG).show();
 
                 name.setText(null);

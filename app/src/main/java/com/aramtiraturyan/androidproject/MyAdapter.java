@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -19,21 +20,21 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>  {
 
 
     private Context mContext;
-    Context c;
-    ArrayList<Student> students;
-    SwipeRefreshLayout swipeRefreshLayout;
+    private Context c;
+    private ArrayList<Student> students;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
-    public MyAdapter(Context c, ArrayList<Student> students, SwipeRefreshLayout swipeRefreshLayout){
+    MyAdapter(Context c, ArrayList<Student> students, SwipeRefreshLayout swipeRefreshLayout){
         this.c = c;
         this.students = students;
         this.swipeRefreshLayout = swipeRefreshLayout;
     }
 
+    @NonNull
     @Override
     public MyHolder onCreateViewHolder(ViewGroup parent, int viewType){
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.model,parent,false);
-        MyHolder holder=new MyHolder(v);
-        return holder;
+        return new MyHolder(v);
     }
 
     @Override
@@ -41,12 +42,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder>  {
         holder.nameTxt.setText(students.get(position).getName());
         holder.lastnameTxt.setText(students.get(position).getLastname());
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                getUpdates();
-            }
-        });
+        swipeRefreshLayout.setOnRefreshListener(this::getUpdates);
 
     }
 

@@ -3,12 +3,9 @@ package com.aramtiraturyan.androidproject;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.provider.SyncStateContract;
 
-import androidx.annotation.Nullable;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     public DatabaseHelper(Context context) {
@@ -60,11 +57,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(PASSWORD, _password);
         contentValues.put(ACCOUNT_TYPE, _account_type);
         long res = db.insert(TABLE_NAME, null, contentValues);
-        if(res == -1) {
-            return false;
-        } else {
-            return true;
-        }
+        return res != -1;
     }
 
 
@@ -82,10 +75,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(AGE, _age);
         contentValues.put(GRADE, _grade);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public boolean signupstudent_by_Parent (String _name, String _last_name, String _email, String _parent_email, String _phone, String _password, String _account_type, String _age, String _grade){
@@ -101,10 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(AGE, _age);
         contentValues.put(GRADE, _grade);
         long result = db.insert(TABLE_NAME, null, contentValues);
-        if(result == -1)
-            return false;
-        else
-            return true;
+        return result != -1;
     }
 
     public Cursor getAllData(){

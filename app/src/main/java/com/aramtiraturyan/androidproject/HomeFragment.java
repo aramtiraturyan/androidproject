@@ -99,7 +99,7 @@ public class HomeFragment extends Fragment {
                     login_email.setText(null);
                     login_password.setText(null);
 
-                    if (rs != null && !rs.isClosed()) {
+                    if (!rs.isClosed()) {
                         rs.close();
                     }
                 }
@@ -116,7 +116,7 @@ public class HomeFragment extends Fragment {
                     login_email.setText(null);
                     login_password.setText(null);
 
-                    if (rs != null && !rs.isClosed()) {
+                    if (!rs.isClosed()) {
                         rs.close();
                     }
 

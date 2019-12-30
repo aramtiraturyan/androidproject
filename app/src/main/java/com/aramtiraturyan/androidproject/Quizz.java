@@ -33,15 +33,15 @@ public class Quizz extends AppCompatActivity {
     }
 
     private void initialize(){
-        rg_choices = (RadioGroup)findViewById(R.id.quizz_radio_group);
-        rb_choice1 = (RadioButton) findViewById(R.id.quizz_radio1);
-        rb_choice2 = (RadioButton) findViewById(R.id.quizz_radio2);
-        rb_choice3 = (RadioButton) findViewById(R.id.quizz_radio3);
-        tv_question = (TextView) findViewById(R.id.quizz_question);
+        rg_choices = findViewById(R.id.quizz_radio_group);
+        rb_choice1 = findViewById(R.id.quizz_radio1);
+        rb_choice2 = findViewById(R.id.quizz_radio2);
+        rb_choice3 = findViewById(R.id.quizz_radio3);
+        tv_question = findViewById(R.id.quizz_question);
         Button b_submit = findViewById(R.id.quizz_submit);
 
         currentQuestionIndex = 0;
-        questions = new ArrayList<QuizzQuestions>();
+        questions = new ArrayList<>();
 
         questions.add(new QuizzQuestions("Who owns the Android platform?", "Open Handset Alliance", "Dalvik", "Oracle", "a"));
         questions.add(new QuizzQuestions("What was the first phone released that ran the Android OS?", "Google gPhone", "T-Mobile G1", "HTC Hero", "b"));

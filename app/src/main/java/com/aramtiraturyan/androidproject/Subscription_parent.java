@@ -33,9 +33,7 @@ public class Subscription_parent extends AppCompatActivity implements View.OnCli
 
 
 
-        back.setOnClickListener(view ->{
-            super.onBackPressed();
-        });
+        back.setOnClickListener(view -> super.onBackPressed());
     }
 
     //Integrate Google Pay or other payment method to accept payments

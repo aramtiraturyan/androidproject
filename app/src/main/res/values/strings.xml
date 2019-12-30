@@ -83,6 +83,9 @@
     <string name="show">Show</string>
     <string name="submit">Submit</string>
     <string name="quizz_exercises">Quizz exercises</string>
+    <string name="select_date">Select Date</string>
+    <string name="schedule_notification">Schedule Notification</string>
+    <string name="set_notification">Set Notification</string>
 
 
     <string-array name="loginas">

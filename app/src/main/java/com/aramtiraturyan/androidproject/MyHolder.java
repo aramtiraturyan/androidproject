@@ -13,7 +13,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
     public MyHolder(View itemView){
         super(itemView);
 
-        this.nameTxt = (TextView) itemView.findViewById(R.id.model_nameTxt);
-        this.lastnameTxt = (TextView) itemView.findViewById(R.id.model_lastnameTxt);
+        this.nameTxt = itemView.findViewById(R.id.model_nameTxt);
+        this.lastnameTxt = itemView.findViewById(R.id.model_lastnameTxt);
     }
 }
