@@ -86,6 +86,9 @@
     <string name="select_date">Select Date</string>
     <string name="schedule_notification">Schedule Notification</string>
     <string name="set_notification">Set Notification</string>
+    <string name="no_alarm_set">No Alarm set</string>
+    <string name="select_time_for_alarm">Select time for alarm</string>
+    <string name="cancel_alarm">Cancel alarm</string>
 
 
     <string-array name="loginas">

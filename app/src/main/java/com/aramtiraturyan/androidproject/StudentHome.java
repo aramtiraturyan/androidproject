@@ -48,12 +48,7 @@ public class StudentHome extends AppCompatActivity {
 
         quizzbutton.setOnClickListener(v -> startActivity(new Intent(StudentHome.this, Quizz.class)));
 
-       /* notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(StudentHome.this, Notification.class));
-            }
-        });*/
+       notification.setOnClickListener(v -> startActivity(new Intent(StudentHome.this, AlertActivity.class)));
 
     }
 
