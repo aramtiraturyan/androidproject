@@ -51,25 +51,31 @@
             app:layout_constraintTop_toBottomOf="@+id/textView" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/setnotif"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
     <Button
         android:id="@+id/videolessons"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:text="Video Lessons"
-        app:layout_constraintBottom_toTopOf="@+id/pdflessons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+ />
 
     <Button
         android:id="@+id/pdflessons"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:text="@string/pdf_lesson"
-        app:layout_constraintBottom_toTopOf="@+id/setnotif"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginLeft="20dp"
+
+ />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/setnotif"

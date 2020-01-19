@@ -27,9 +27,9 @@ public class VideoLessons extends AppCompatActivity {
         videoView=findViewById(R.id.videolessons);
         listView=findViewById(R.id.lvideo);
         videoList = new ArrayList<>();
-        videoList.add("geography");
-        videoList.add("history");
-        videoList.add("svt");
+        videoList.add("Geography");
+        videoList.add("History");
+        videoList.add("SVT");
 
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, videoList);
         listView.setAdapter(adapter);
