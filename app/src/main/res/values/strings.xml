@@ -89,6 +89,7 @@
     <string name="no_alarm_set">No Alarm set</string>
     <string name="select_time_for_alarm">Select time for alarm</string>
     <string name="cancel_alarm">Cancel alarm</string>
+    <string name="pdf_lesson">PDF lessons</string>
 
 
     <string-array name="loginas">

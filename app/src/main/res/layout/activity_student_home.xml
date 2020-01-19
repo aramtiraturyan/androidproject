@@ -52,6 +52,16 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/pdflessons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="@string/pdf_lesson"
+        app:layout_constraintBottom_toTopOf="@+id/setnotif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/setnotif"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

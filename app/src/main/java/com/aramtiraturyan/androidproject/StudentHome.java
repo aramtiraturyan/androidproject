@@ -18,6 +18,7 @@ public class StudentHome extends AppCompatActivity {
     Button btnscontactus;
     Button quizzbutton;
     Button notification;
+    Button pdflessons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class StudentHome extends AppCompatActivity {
         btnscontactus = findViewById(R.id.btnstudentcontactus);
         quizzbutton = findViewById(R.id.quizz);
         notification = findViewById(R.id.setnotif);
+        pdflessons = findViewById(R.id.pdflessons);
 
         Toast.makeText(getApplicationContext(), "User Login Status: " + session.isLoggedIn(), Toast.LENGTH_LONG).show();
         session.checkLogin();
@@ -49,6 +51,8 @@ public class StudentHome extends AppCompatActivity {
         quizzbutton.setOnClickListener(v -> startActivity(new Intent(StudentHome.this, Quizz.class)));
 
        notification.setOnClickListener(v -> startActivity(new Intent(StudentHome.this, AlertActivity.class)));
+
+       pdflessons.setOnClickListener(v -> startActivity(new Intent(StudentHome.this, PDFLessons.class)));
 
     }
 
