@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PDFOpener"></activity>
+        <activity android:name=".VideoLessons"></activity>
+        <activity android:name=".PDFOpener" />
         <activity android:name=".PDFLessons" />
         <activity android:name=".AlertActivity" />
         <activity android:name=".Quizz" />

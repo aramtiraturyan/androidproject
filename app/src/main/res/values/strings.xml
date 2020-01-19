@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Learn Solo</string>
-
-    <!--Contact Form-->
-
     <string name="contact_form">Contact Us</string>
     <string name="contact_form_name">Your Name</string>
     <string name="contact_form_email">Your Email</string>
@@ -22,8 +19,6 @@
     <string name="hello_aramtiraturyan_com">hello@aramtiraturyan.com</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="buffering">Buffering</string>
     <string name="discover_solo_learn_in_this_video">Discover Solo Learn in this video</string>

@@ -8,10 +8,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class PDFLessons extends AppCompatActivity {
 
@@ -21,7 +19,7 @@ public class PDFLessons extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pdflessons);
-        pdfListView=(ListView) findViewById(R.id.myPDFList);
+        pdfListView= findViewById(R.id.myPDFList);
 
         String[] pdfFiles = {"French", "Geography", "History", "Math", "SVT"};
 
@@ -31,7 +29,7 @@ public class PDFLessons extends AppCompatActivity {
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
                 View view = super.getView(position, convertView, parent);
-                TextView myText = (TextView) view.findViewById(android.R.id.text1);
+                view.findViewById(android.R.id.text1);
 
                 return view;
             }
