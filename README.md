@@ -1,4 +1,9 @@
 # androidproject
 
-My Android Project. 
-Creating android app, which will be used by the students and parents for preparation of their homeworks. 
+Universite de Montpellier, IPS M2
+
+Project files of M2 Android Project
+
+This repository contains android project, which is an app that is used by school students and parents for preparing their home works.
+
+Android Studio, Java
